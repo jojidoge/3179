@@ -1,4 +1,11 @@
-tbody {
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -25,7 +32,7 @@ h2 {
 }
 
 .description {
-    padding: 10px;
+    padding: 15px;
     background: #e7f3fe;
     border-left: 5px solid #2196F3;
     margin-bottom: 20px;
@@ -33,15 +40,14 @@ h2 {
 }
 
 .vis-container {
-    width:100%;
-    border: none; 
-    overflow: hidden; 
+    border: none; /* Ensure no border for the container */
+    overflow: hidden; /* Prevent any overflow from affecting layout */
 }
 
 canvas {
-    border: none !important; 
-    outline: none !important; 
-    background-color: transparent; 
+    border: none !important; /* Remove canvas borders */
+    outline: none !important; /* Remove any outline */
+    background-color: transparent; /* Optional */
 }
 
 .small-font {
@@ -51,10 +57,9 @@ canvas {
 }
 
 .pure-g {
-    margin-bottom: 20px; /* Spacing between grid groups */
+    margin-bottom: 20px;
 }
 
-/* Additional styling for links */
 a {
     color: #2196F3;
     text-decoration: none;
@@ -64,7 +69,3 @@ a:hover {
     text-decoration: underline;
 }
 
-
-a:hover {
-    text-decoration: underline;
-}

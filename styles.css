@@ -33,14 +33,14 @@ h2 {
 }
 
 .vis-container {
-    height: 400px; /* Fixed height for visualisations */
-    margin-top: 10px;
-    background-color: #f9f9f9; /* Keep background color for better contrast */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none; /* Remove the border */
-    border-radius: 5px; /* Keep rounded corners for aesthetic */
+    border: none; 
+    overflow: hidden; 
+}
+
+canvas {
+    border: none !important; 
+    outline: none !important; 
+    background-color: transparent; 
 }
 
 .small-font {

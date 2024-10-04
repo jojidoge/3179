@@ -40,14 +40,16 @@ h2 {
 }
 
 .vis-container {
-    border: none; /* Ensure no border for the container */
-    overflow: hidden; /* Prevent any overflow from affecting layout */
+    border: none; 
+    padding: 10px; 
+    margin-left: 20px;
+    overflow: hidden; 
 }
 
 canvas {
-    border: none !important; /* Remove canvas borders */
-    outline: none !important; /* Remove any outline */
-    background-color: transparent; /* Optional */
+    border: none !important; 
+    outline: none !important; 
+    background-color: transparent; 
 }
 
 .small-font {

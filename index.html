@@ -20,10 +20,15 @@
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="styles.css" media="all">
-
+  
   <style>
+    /* Additional styles for layout adjustments */
     .vis-container {
-      padding-left: 10px; /* Adjust left padding to shift vis2 to the left */
+      padding: 10px; /* General padding for both visualisations */
+    }
+    
+    .vis2-container {
+      margin-left: -10px; /* Shift vis2 slightly to the left */
     }
   </style>
 </head>
@@ -44,7 +49,7 @@
       <div class="pure-u-2-3">
         <div id="vis1" class="vis-container"></div>
       </div>
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-3 vis2-container">
         <div id="vis2" class="vis-container"></div>
       </div>
     </div>

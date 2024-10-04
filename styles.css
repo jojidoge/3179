@@ -1,4 +1,4 @@
-body {
+tbody {
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -34,6 +34,7 @@ h2 {
 
 .vis-container {
     width:100%;
+    height:500px;
     border: none; 
     overflow: hidden; 
 }

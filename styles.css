@@ -1,5 +1,3 @@
-/* styles.css */
-
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
@@ -36,13 +34,13 @@ h2 {
 
 .vis-container {
     height: 400px; /* Fixed height for visualisations */
-    border: 1px solid #ccc;
-    border-radius: 5px;
     margin-top: 10px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Keep background color for better contrast */
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Keep rounded corners for aesthetic */
 }
 
 .small-font {
@@ -60,6 +58,11 @@ a {
     color: #2196F3;
     text-decoration: none;
 }
+
+a:hover {
+    text-decoration: underline;
+}
+
 
 a:hover {
     text-decoration: underline;

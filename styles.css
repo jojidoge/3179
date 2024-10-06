@@ -26,26 +26,19 @@ body {
     align-items: center; 
 }
 
-.vis-container {
-    width: 100%;
+.visualisation-group {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
 }
 
 #vis1, #vis2 {
-    width: 100%;
-    height: 400px;
+    width: 48%; 
+    height: 400px; 
 }
 
 .pure-g {
     margin-bottom: 40px;
-}
-
-.pure-u-1-2 {
-    width: 48%;
-    margin-right: 5%;
-}
-
-.pure-u-1-2:last-child {
-    margin-right: 0;
 }
 
 .small-font {

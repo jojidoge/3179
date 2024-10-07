@@ -1,0 +1,93 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": "Area Burnt by Fires in Australia Over Time (2011-2016)",
+    "data": {
+      "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/forestFiresAustralia.csv",
+      "format": {"type": "csv"}
+    },
+    "params": [
+      {
+        "name": "stateFilter",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": [
+            "All",
+            "Australian Capital Territory",
+            "New South Wales",
+            "Northern Territory",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia"
+          ]
+        }
+      }
+    ],
+    "transform": [
+      {
+        "calculate": "datum.Area_Burned * 1",
+        "as": "Area_Burned_Numeric"
+      },
+      {
+        "filter": {
+          "or": [
+            {"field": "Jurisdiction", "equal": {"param": "stateFilter"}},
+            {"param": "stateFilter", "equal": "All"}
+          ]
+        }
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "scale": {
+          "padding": 0 
+        }
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": "Area_Burned_Numeric",
+        "type": "quantitative",
+        "title": "Area Burnt (hectares)"
+      },
+      "color": {
+        "field": "Jurisdiction",
+        "type": "nominal",
+        "title": "Jurisdiction",
+        "scale": {
+          "domain": [
+            "Australian Capital Territory",
+            "New South Wales",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia"
+          ],
+          "range": [
+            "#ff6347",
+            "#8b0000",
+            "#8b4513",
+            "#d62728",
+            "#ff4500",
+            "#ff8c00",
+            "#cd853f"
+          ]
+        }
+      },
+      "tooltip": [
+        {"field": "Jurisdiction", "type": "nominal", "title": "Jurisdiction"},
+        {"field": "Area_Burned_Numeric", "type": "quantitative", "title": "Area Burnt"},
+        {"field": "Year", "type": "ordinal", "title": "Year"}
+      ]
+    },
+    "mark": "area",
+    "opacity": 0.7
+  }
+  

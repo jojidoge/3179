@@ -30,7 +30,7 @@ body {
     display: flex;
     justify-content: space-between; 
     width: 100%; 
-    margin-bottom: 40px; /* Space between visualisation groups */
+    margin-bottom: 40px; 
 }
 
 .vis-container {
@@ -40,7 +40,7 @@ body {
 
 .vis-text {
     width: 48%; 
-    text-align: center; /* Adjust text alignment as needed */
+    text-align: center; 
 }
 
 .small-font {

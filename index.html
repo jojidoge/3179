@@ -3,24 +3,16 @@
 
 <head>
   <title>Forest Fires in Australia</title>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
-  <!-- Import pure.css -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
-  <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="styles.css" media="all">
-  
 </head>
 
 <body>
@@ -30,34 +22,35 @@
 
     <div class="visualisation-group">
       <div class="vis-container" id="vis1"></div>
-      <div class="vis-text">
+      <div class="text-container">
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
-        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+        </p>
       </div>
     </div>
 
     <div class="visualisation-group">
-      <div class="vis-text">
+      <div class="text-container">
         <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
         </p>
       </div>
       <div class="vis-container" id="vis2"></div>
     </div>
 
-    <div class="vis-container" id="vis3"></div>
+    <div class="vis-container full-width" id="vis3"></div>
 
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
-        <p>This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">Theekshana Jayasekera</a>. The datasource is <a href="#" target="_blank">some data repository online</a>.</p>
+        <p>This visualisation is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">FIT3179
+            Teaching Team</a>. The datasource is <a href="#" target="_blank">some data repository online</a>.</p>
       </div>
     </div>
-  </div> <!-- end page -->
+  </div>
 
   <script type="text/javascript">
     var specVis1 = "./forest-fire-bar.json";
@@ -66,7 +59,6 @@
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
     vegaEmbed('#vis3', specVis3, { "actions": false });
   </script>

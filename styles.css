@@ -39,13 +39,13 @@ body {
 }
 
 .vis-container {
-    width: 48%; 
+    width: 45%; 
     height: 400px; 
 }
 
 .text-container {
-    width: 35%; 
-    margin: 0; 
+    width: 40%; 
+    margin: 0 20px; 
 }
 
 .full-width {

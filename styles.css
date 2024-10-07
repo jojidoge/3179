@@ -30,15 +30,17 @@ body {
     display: flex;
     justify-content: space-between; 
     width: 100%; 
+    margin-bottom: 40px; /* Space between visualisation groups */
 }
 
-#vis1, #vis2 {
+.vis-container {
     width: 48%; 
     height: 400px; 
 }
 
-.pure-g {
-    margin-bottom: 40px;
+.vis-text {
+    width: 48%; 
+    text-align: center; /* Adjust text alignment as needed */
 }
 
 .small-font {

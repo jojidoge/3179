@@ -39,13 +39,12 @@ body {
 
 .text-container {
     width: 40%; 
-    margin: 90px 20px 0 0; 
+    margin: 80px 30px 0 0; 
 }
 
 #vis2 {
     width: 45%; 
     height: 400px; 
-    margin-left: 30px; 
 }
 
 .full-width {

@@ -37,46 +37,22 @@ body {
     grid-gap: 40px;
     width: 100%;
     justify-items: center;
+    align-items: center; 
 }
 
-#vis1 {
-    grid-area: vis1;
-    width: 100%;
+#vis1, #vis2, #vis3 {
+    width: 90%; 
     height: 400px;
 }
 
-#text1 {
-    grid-area: text1;
+#text1, #text2, #text3 {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    text-align: left; 
 }
 
-#text2 {
-    grid-area: text2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#vis2 {
-    grid-area: vis2;
-    width: 100%;
-    height: 400px;
-}
-
-#vis3 {
-    grid-area: vis3;
-    width: 45%;
-    height: 400px;
-}
-
-#text3 {
-    grid-area: text3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .full-width {
     width: 45%;

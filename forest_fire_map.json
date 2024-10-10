@@ -6,10 +6,10 @@
   "params": [
     {
       "name": "zoom",
-      "value": 560,
+      "value": 605,
       "bind": {
         "input": "range",
-        "min": 560,
+        "min": 605,
         "max": 5000,
         "step": 5,
         "name": "Zoom Level"
@@ -17,7 +17,7 @@
     },
     {
       "name": "cLng",
-      "value": 135,
+      "value": 132,
       "bind": {
         "input": "range",
         "min": 115,

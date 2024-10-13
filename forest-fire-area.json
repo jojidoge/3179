@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 600,
     "height": 400,
-    "title": "Area Burnt by Fires in Australia Over Time (2011-2016)",
+    "title": "Area Burnt by Fires in Australia (2011-2016)",
     "data": {
       "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/forestFiresAustralia.csv",
       "format": {"type": "csv"}
@@ -29,16 +29,15 @@
     ],
     "transform": [
       {
-        "calculate": "datum.Area_Burned * 1",
+        "calculate": "replace(datum.Area_Burned, ',', '')",  
+        "as": "Area_Burned_Clean"
+      },
+      {
+        "calculate": "toNumber(datum.Area_Burned_Clean)", 
         "as": "Area_Burned_Numeric"
       },
       {
-        "filter": {
-          "or": [
-            {"field": "Jurisdiction", "equal": {"param": "stateFilter"}},
-            {"param": "stateFilter", "equal": "All"}
-          ]
-        }
+        "filter": "stateFilter == 'All' || datum.Jurisdiction == stateFilter"
       }
     ],
     "encoding": {
@@ -54,7 +53,10 @@
         "aggregate": "sum",
         "field": "Area_Burned_Numeric",
         "type": "quantitative",
-        "title": "Area Burnt (hectares)"
+        "title": "Area Burnt (hectares)",
+        "scale": {
+          "type": "linear" 
+        }
       },
       "color": {
         "field": "Jurisdiction",
@@ -64,6 +66,7 @@
           "domain": [
             "Australian Capital Territory",
             "New South Wales",
+            "Northern Territory",
             "Queensland",
             "South Australia",
             "Tasmania",
@@ -77,7 +80,8 @@
             "#d62728",
             "#ff4500",
             "#ff8c00",
-            "#cd853f"
+            "#cd853f",
+            "#ffd700" 
           ]
         }
       },
@@ -90,4 +94,3 @@
     "mark": "area",
     "opacity": 0.7
   }
-  

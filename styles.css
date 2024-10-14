@@ -82,3 +82,25 @@ body {
     color: #ffffff;
     text-align: center;
 }
+
+
+.new-container {
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 20px; 
+    width: 100%;
+}
+
+#vis4 {
+    flex: 1; 
+    margin-right: 20px;
+}
+
+#text4 {
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: left;
+    padding: 20px; 
+}

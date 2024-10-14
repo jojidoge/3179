@@ -1,48 +1,200 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "Radar chart showing average values for different measurements in various time frames.",
     "width": 400,
-    "height": 500,
-    "data": {
-      "values": [
-        {"TimeFrame": "During fire", "Measurement": "Avg_Dissolved_Oxygen", "Value": 87.41},
-        {"TimeFrame": "During fire", "Measurement": "Avg_Salinity", "Value": 41.98},
-        {"TimeFrame": "During fire", "Measurement": "Avg_pH", "Value": 8.25},
-        {"TimeFrame": "During fire", "Measurement": "Avg_Chlorophyll", "Value": 9.69},
-        {"TimeFrame": "Post-fire", "Measurement": "Avg_Dissolved_Oxygen", "Value": 97.62},
-        {"TimeFrame": "Post-fire", "Measurement": "Avg_Salinity", "Value": 24.86},
-        {"TimeFrame": "Post-fire", "Measurement": "Avg_pH", "Value": 7.92},
-        {"TimeFrame": "Post-fire", "Measurement": "Avg_Chlorophyll", "Value": 7.35},
-        {"TimeFrame": "Pre-fire", "Measurement": "Avg_Dissolved_Oxygen", "Value": 96.31},
-        {"TimeFrame": "Pre-fire", "Measurement": "Avg_Salinity", "Value": 32.15},
-        {"TimeFrame": "Pre-fire", "Measurement": "Avg_pH", "Value": 8.05},
-        {"TimeFrame": "Pre-fire", "Measurement": "Avg_Chlorophyll", "Value": 3.20}
-      ]
+    "height": 400,
+    "padding":40,
+    "title": "Average Water Quality Before/After",
+    "autosize": {"type": "none", "contains": "padding"},
+  
+    "signals": [
+      {"name": "radius", "update": "width / 2"},
+      {
+        "name": "selectedCategory",
+        "value": "All", 
+        "bind": {
+          "input": "select",
+          "options": ["All", "Pre-fire", "Post-fire"]
+        }
+      }
+    ],
+  
+    "data": [
+      {
+        "name": "table",
+        "values": [
+          {"key": "Avg_Salinity", "value": 24.86, "category": "Post-fire"},
+          {"key": "Avg_pH", "value": 7.92, "category": "Post-fire"},
+          {"key": "Avg_Chlorophyll", "value": 7.35, "category": "Post-fire"},
+          {"key": "Avg_Blue_Algae", "value": 12.74, "category": "Post-fire"},
+          {"key": "Avg_fDOM", "value": 17.63, "category": "Post-fire"},
+          {"key": "Avg_Salinity", "value": 32.15, "category": "Pre-fire"},
+          {"key": "Avg_pH", "value": 8.05, "category": "Pre-fire"},
+          {"key": "Avg_Chlorophyll", "value": 3.20, "category": "Pre-fire"},
+          {"key": "Avg_Blue_Algae", "value": 6.22, "category": "Pre-fire"},
+          {"key": "Avg_fDOM", "value": 11.58, "category": "Pre-fire"}
+        ]
+      },
+      {
+        "name": "filteredData",
+        "source": "table",
+        "transform": [
+          {
+            "type": "filter",
+            "expr": "selectedCategory === 'All' || datum.category === selectedCategory"
+          }
+        ]
+      },
+      {
+        "name": "keys",
+        "source": "filteredData",
+        "transform": [
+          {
+            "type": "aggregate",
+            "groupby": ["key"]
+          }
+        ]
+      }
+    ],
+  
+    "scales": [
+      {
+        "name": "angular",
+        "type": "point",
+        "range": {"signal": "[-PI, PI]"},
+        "padding": 0.5,
+        "domain": {"data": "filteredData", "field": "key"}
+      },
+      {
+        "name": "radial",
+        "type": "linear",
+        "range": {"signal": "[0, radius]"},
+        "zero": true,
+        "nice": false,
+        "domain": [0, 32.15]
+      },
+      {
+        "name": "color",
+        "type": "ordinal",
+        "domain": ["Pre-fire", "Post-fire"],
+        "range": ["blue", "gray"] 
+      }
+    ],
+  
+    "encode": {
+      "enter": {
+        "x": {"signal": "radius"},
+        "y": {"signal": "radius"}
+      }
     },
-    "mark": "bar",
-    "encoding": {
-      "x": {
-        "field": "Measurement",
-        "type": "nominal",
-        "title": "Measurement"
+  
+    "marks": [
+      {
+        "type": "group",
+        "name": "categories",
+        "zindex": 1,
+        "from": {
+          "facet": {"data": "filteredData", "name": "facet", "groupby": ["category"]}
+        },
+        "marks": [
+          {
+            "type": "line",
+            "name": "category-line",
+            "from": {"data": "facet"},
+            "encode": {
+              "enter": {
+                "interpolate": {"value": "linear-closed"},
+                "x": {"signal": "scale('radial', datum.value) * cos(scale('angular', datum.key))"},
+                "y": {"signal": "scale('radial', datum.value) * sin(scale('angular', datum.key))"},
+                "stroke": {"scale": "color", "field": "category"},
+                "strokeWidth": {"value": 1},
+                "fill": {"scale": "color", "field": "category"},
+                "fillOpacity": {"value": 0.1}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "name": "value-text",
+            "from": {"data": "category-line"},
+            "encode": {
+              "enter": {
+                "x": {"signal": "datum.x"},
+                "y": {"signal": "datum.y"},
+                "text": {"signal": "datum.datum.value"},
+                "align": {"value": "center"},
+                "baseline": {"value": "middle"},
+                "fill": {"value": "black"}
+              }
+            }
+          }
+        ]
       },
-      "y": {
-        "field": "Value",
-        "type": "quantitative",
-        "title": "Average Value"
-      },
-      "color": {
-        "field": "TimeFrame",
-        "type": "nominal",
-        "title": "Time Frame",
-        "scale": {
-          "domain": ["During fire", "Post-fire", "Pre-fire"],
-          "range": ["#d9d9d9", "#2c3e50", "#6cb4e4"] 
+      {
+        "type": "rule",
+        "name": "radial-grid",
+        "from": {"data": "keys"},
+        "zindex": 0,
+        "encode": {
+          "enter": {
+            "x": {"value": 0},
+            "y": {"value": 0},
+            "x2": {"signal": "radius * cos(scale('angular', datum.key))"},
+            "y2": {"signal": "radius * sin(scale('angular', datum.key))"},
+            "stroke": {"value": "lightgray"},
+            "strokeWidth": {"value": 1}
+          }
         }
       },
-      "tooltip": [
-        {"field": "TimeFrame", "type": "nominal", "title": "Time Frame"},
-        {"field": "Measurement", "type": "nominal", "title": "Measurement"},
-        {"field": "Value", "type": "quantitative", "title": "Average Value"}
-      ]
-    }
-}
+      {
+        "type": "text",
+        "name": "key-label",
+        "from": {"data": "keys"},
+        "zindex": 1,
+        "encode": {
+          "enter": {
+            "x": {"signal": "(radius + 5) * cos(scale('angular', datum.key))"},
+            "y": {"signal": "(radius + 5) * sin(scale('angular', datum.key))"},
+            "text": {"field": "key"},
+            "align": [
+              {
+                "test": "abs(scale('angular', datum.key)) > PI / 2",
+                "value": "right"
+              },
+              {
+                "value": "left"
+              }
+            ],
+            "baseline": [
+              {
+                "test": "scale('angular', datum.key) > 0", "value": "top"
+              },
+              {
+                "test": "scale('angular', datum.key) == 0", "value": "middle"
+              },
+              {
+                "value": "bottom"
+              }
+            ],
+            "fill": {"value": "black"},
+            "fontWeight": {"value": "bold"}
+          }
+        }
+      },
+      {
+        "type": "line",
+        "name": "outer-line",
+        "from": {"data": "radial-grid"},
+        "encode": {
+          "enter": {
+            "interpolate": {"value": "linear-closed"},
+            "x": {"field": "x2"},
+            "y": {"field": "y2"},
+            "stroke": {"value": "lightgray"},
+            "strokeWidth": {"value": 1}
+          }
+        }
+      }
+    ]
+  }
+  

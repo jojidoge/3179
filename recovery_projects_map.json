@@ -1,0 +1,97 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 500,
+    "title": "Recovery Project Initiatives for Black Summer Bushfires (2019-2020)",
+    "params": [
+      {
+        "name": "zoom",
+        "value": 605,
+        "bind": {
+          "input": "range",
+          "min": 605,
+          "max": 5000,
+          "step": 5,
+          "name": "Zoom Level"
+        }
+      },
+      {
+        "name": "cLng",
+        "value": 135,
+        "bind": {
+          "input": "range",
+          "min": 115,
+          "max": 150,
+          "name": "Pan Left/Right"
+        }
+      },
+      {
+        "name": "cLat",
+        "value": -25,
+        "bind": {
+          "input": "range",
+          "min": -45,
+          "max": -12,
+          "name": "Pan Up/Down",
+          "orient": "vertical"
+        }
+      }
+    ],
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/ne_50m_admin_1_states_provinces.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_50m_admin_1_states_provinces"
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "lightgray",
+          "stroke": "white"
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jojidoge/3179/main/recoveryProjects.csv",
+          "format": {
+            "type": "csv"
+          }
+        },
+        "mark": {
+          "type": "circle",
+          "color": "red",
+          "size": 80
+        },
+        "encoding": {
+          "longitude": {
+            "field": "long",
+            "type": "quantitative"
+          },
+          "latitude": {
+            "field": "lat",
+            "type": "quantitative"
+          },
+          "tooltip": [
+            {"field": "name", "type": "nominal", "title": "Project Name"},
+            {"field": "description", "type": "nominal", "title": "Project Description"},
+            {"field": "location", "type": "nominal", "title": "Location"},
+            {"field": "cwlth_state_funding", "type": "nominal", "title": "Funding"},
+            {"field": "project_status", "type": "nominal", "title": "Status"},
+            {"field": "recovery_type", "type": "nominal", "title": "Recovery Type"}
+          ]
+        }
+      }
+    ],
+    "projection": {
+      "type": "equalEarth",
+      "scale": {
+        "signal": "zoom"
+      },
+      "center": {
+        "signal": "[cLng, cLat]"
+      }
+    }
+  }
+  

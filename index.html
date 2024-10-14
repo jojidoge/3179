@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2019-2020 Australian Bushfires</title>
+  
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" 
+        crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -20,7 +24,6 @@
     <h1>2019-2020 Australian Bushfires</h1>
     <p>A brief history of bushfires in Australia and a deep dive into the 2019-2020 Black Summer season.</p>
 
-    <!-- History Section -->
     <div class="grid-container">
       <div class="vis-container" id="vis3"></div>
       <div class="text-container" id="text1">
@@ -28,7 +31,6 @@
       </div>
     </div>
 
-    <!-- Black Summer Bushfires Section -->
     <div class="black-summer-section">
       <h2>The 2019-2020 Black Summer Bushfires</h2>
       <p>One of the most devastating fire seasons in Australian history, the Black Summer bushfires caused widespread destruction across the country.</p>
@@ -38,7 +40,6 @@
           <p>The Black Summer fires resulted in unprecedented damage to wildlife, infrastructure, and ecosystems. Government initiatives focused on recovery projects to aid in rebuilding.</p>
         </div>
         <div class="vis-container" id="vis2"></div>
-
         <div class="vis-container" id="vis1"></div>
         <div class="text-container" id="text3">
           <p>Recovery efforts are underway in many affected areas, focusing on economic, environmental, and community resilience. The data visualisation below highlights key recovery projects across different regions.</p>
@@ -46,7 +47,6 @@
       </div>
     </div>
 
-    <!-- Black Summer Impact Section -->
     <div class="impact-section">
       <h2>Impact of the Fires</h2>
       <p>The 2019/2020 fires left people, fauna, and flora devastated.</p>
@@ -56,7 +56,6 @@
           <p>The Black Summer fires resulted in unprecedented damage to wildlife, infrastructure, and ecosystems. Government initiatives focused on recovery projects to aid in rebuilding.</p>
         </div>
         <div class="vis-container" id="vis5"></div>
-
         <div class="vis-container" id="vis6"></div>
         <div class="text-container" id="text5">
           <p>Recovery efforts are underway in many affected areas, focusing on economic, environmental, and community resilience. The data visualisation below highlights key recovery projects across different regions.</p>
@@ -82,8 +81,7 @@
     var specVis6 = "./protected_species.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
-    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
-    }).catch(console.error);
+    vegaEmbed('#vis2', specVis2, { "actions": false }).catch(console.error);
     vegaEmbed('#vis3', specVis3, { "actions": false });
     vegaEmbed('#vis4', specVis4, { "actions": false });
     vegaEmbed('#vis5', specVis5, { "actions": false });

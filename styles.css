@@ -7,6 +7,12 @@ h1 {
     text-align: center; 
 }
 
+h2 {
+    font-weight: 700;
+    text-align: center; 
+    color: #ffffff;
+}
+
 p {
     text-align: center; 
 }
@@ -40,7 +46,7 @@ body {
     align-items: center; 
 }
 
-#vis1, #vis2, #vis3 {
+#vis1, #vis2, #vis3, #vis4 {
     width: 90%; 
     height: 400px;
 }
@@ -53,7 +59,6 @@ body {
     text-align: left; 
 }
 
-
 .full-width {
     width: 45%;
 }
@@ -61,4 +66,18 @@ body {
 .small-font {
     font-size: 14px;
     text-align: center; 
+}
+
+.black-summer-section {
+    background-color: #FF8C42;
+    color: white;
+    padding: 30px;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+.black-summer-section p {
+    color: #ffffff;
+    text-align: center;
 }

@@ -39,16 +39,14 @@ body {
     grid-template-areas:
         "vis1 text1"
         "text2 vis2"
-        "vis3 text3"
-        "text4 vis4"
-        "vis6 text5";
+        "vis3 text3";
     grid-gap: 40px;
     width: 100%;
     justify-items: center;
     align-items: center; 
 }
 
-#vis1, #vis2, #vis3, #vis4, #vis6 {
+#vis1, #vis2, #vis3 {
     width: 80%; 
     height: 400px;
 }

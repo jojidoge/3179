@@ -1,5 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": "Protected Species Affected By Fires",
     "data": {
       "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/protected_species.csv",
       "format": {

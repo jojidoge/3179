@@ -1,27 +1,45 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #333333;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+body * {
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
-    font-size: 2.5em;
-    margin: 20px 0;
+    font-weight: 900;
+    text-align: center; 
+}
+
+h2 {
+    font-weight: 700;
+    text-align: center; 
+    color: #ffffff;
 }
 
 p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin: 10px 20px;
+    text-align: center; 
+}
+
+body {
+    background-color: white;
+}
+
+.page {
+    max-width: 1400px;
+    background-color: white;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "vis1 text1"
+        "text2 vis2"
+        "vis3 text3";
     grid-gap: 40px;
     width: 100%;
     justify-items: center;
@@ -29,7 +47,7 @@ p {
 }
 
 #vis1, #vis2, #vis3, #vis4 {
-    width: 80%;
+    width: 90%; 
     height: 400px;
 }
 
@@ -38,15 +56,19 @@ p {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    text-align: left;
-    width: 80%;
+    text-align: left; 
 }
 
 .full-width {
-    grid-column: span 2;
-    width: 90%;
+    width: 45%;
 }
 
+.small-font {
+    font-size: 14px;
+    text-align: center; 
+}
+
+/* Black Summer Section Style */
 .black-summer-section {
     background-color: #FF8C42;
     color: white;
@@ -54,22 +76,9 @@ p {
     width: 100%;
     margin-top: 40px;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-@media screen and (max-width: 800px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-    }
-
-    #vis1, #vis2, #vis3, #vis4 {
-        width: 90%;
-    }
-
-    #text1, #text2, #text3 {
-        width: 90%;
-    }
+.black-summer-section p {
+    color: #ffffff;
+    text-align: center;
 }

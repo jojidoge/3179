@@ -1,0 +1,13 @@
+"Dummy","Time.Frame","Measurement","Value"
+1,"During fire","Avg_Dissolved_Oxygen",87.4090711345833
+1,"During fire","Avg_Salinity",41.9753846153846
+1,"During fire","Avg_pH",8.24538461538462
+1,"During fire","Avg_Chlorophyll",9.68961538461538
+1,"Post-fire","Avg_Dissolved_Oxygen",97.6153861515584
+1,"Post-fire","Avg_Salinity",24.8569344657143
+1,"Post-fire","Avg_pH",7.92368216801299
+1,"Post-fire","Avg_Chlorophyll",7.35006341066234
+1,"Pre-fire","Avg_Dissolved_Oxygen",96.3083775989844
+1,"Pre-fire","Avg_Salinity",32.1497414630469
+1,"Pre-fire","Avg_pH",8.0470772730625
+1,"Pre-fire","Avg_Chlorophyll",3.20301900796094

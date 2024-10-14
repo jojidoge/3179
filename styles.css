@@ -23,6 +23,7 @@ body {
 
 .page {
     max-width: 1400px;
+    background-color: white;
     margin: auto;
     padding: 50px;
     padding-top: 35px;
@@ -33,24 +34,40 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "vis1 text1"
+        "text2 vis2"
+        "vis3 text3"
+        "text4 vis4"
+        "vis6 text5";
     grid-gap: 40px;
     width: 100%;
     justify-items: center;
-    align-items: start;
+    align-items: center; 
 }
 
-.vis-container {
+#vis1, #vis2, #vis3, #vis4, #vis6 {
     width: 80%; 
-    height: 400px; 
+    height: 400px;
 }
 
-.text-container {
+#text1, #text2, #text3 {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     text-align: left; 
+}
+
+.full-width {
+    width: 45%;
+}
+
+.small-font {
+    font-size: 14px;
+    text-align: center; 
 }
 
 .black-summer-section {
@@ -69,10 +86,12 @@ body {
 }
 
 #vis4 {
+    flex: 1; 
     margin-right: 20px;
 }
 
 #text4 {
+    flex: 1; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -82,7 +101,7 @@ body {
 
 .impact-section {
     background-color: #f7ead2; 
-    color: black; 
+    color: white;
     padding: 20px 10px 100px;
     width: 100%;
     margin-top: 40px;
@@ -109,14 +128,4 @@ body {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr; 
-    }
-    
-    .vis-container {
-        width: 90%; 
-    }
 }

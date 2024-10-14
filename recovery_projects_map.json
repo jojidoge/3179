@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 600,
-    "height": 500,
-    "title": "Recovery Project Initiatives for Black Summer Bushfires (2019-2020)",
+    "width": 400,
+    "height": 400,
+    "title": "Recovery Project Initiatives for Black Summer Bushfires",
     "params": [
       {
         "name": "zoom",

@@ -68,14 +68,14 @@ body {
     text-align: center; 
 }
 
-/* Black Summer Section Style */
 .black-summer-section {
     background-color: #FF8C42;
     color: white;
-    padding: 30px;
+    padding: 60px;
     width: 100%;
     margin-top: 40px;
     border-radius: 8px;
+    min-height: 400px;
 }
 
 .black-summer-section p {

@@ -98,7 +98,7 @@ body {
 }
 
 .impact-section {
-    background-color: #FFFDD0; 
+    background-color: #FFCCB3; 
     color: white;
     padding: 20px 10px 100px;
     width: 100%;
@@ -108,11 +108,11 @@ body {
 }
 
 .impact-section h2 {
-    color: #ffffff;
+    color: black;
 }
 
 .impact-section p {
-    color: #ffffff;
+    color: black;
     text-align: center;
 }
 

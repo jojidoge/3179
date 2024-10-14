@@ -57,8 +57,9 @@
         </div>
         <div class="vis-container" id="vis5"></div>
 
+        <div class="vis-container" id="vis6"></div>
         <div class="text-container" id="text5">
-          <p>This section provides insights into the various impacts the fires had on communities and ecosystems.</p>
+          <p>Recovery efforts are underway in many affected areas, focusing on economic, environmental, and community resilience. The data visualisation below highlights key recovery projects across different regions.</p>
         </div>
       </div>
     </div>
@@ -78,6 +79,7 @@
     var specVis3 = "./forest-fire-area.json";
     var specVis4 = "./recovery_projects_map.json";
     var specVis5 = "./water-quality.json";
+    var specVis6 = "./protected_species.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
@@ -85,6 +87,7 @@
     vegaEmbed('#vis3', specVis3, { "actions": false });
     vegaEmbed('#vis4', specVis4, { "actions": false });
     vegaEmbed('#vis5', specVis5, { "actions": false });
+    vegaEmbed('#vis6', specVis6, { "actions": false });
   </script>
 </body>
 

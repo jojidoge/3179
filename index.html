@@ -50,6 +50,23 @@
       </div>
     </div>
 
+    <!-- Black Summer Impact Section -->
+    <div class="impact-section">
+      <h2>Impact of the Fires</h2>
+      <p>The 2019/2020 fires left people, fauna and flora devastated.</p>
+      
+      <div class="grid-container">
+        <div class="text-container" id="text2">
+          <p>The Black Summer fires resulted in unprecedented damage to wildlife, infrastructure, and ecosystems. Government initiatives focused on recovery projects to aid in rebuilding.</p>
+        </div>
+        <div class="vis-container" id="vis5"></div>
+
+        <div class="text-container" id="text2">
+          <p>The Black Summer fires resulted in unprecedented damage to wildlife, infrastructure, and ecosystems. Government initiatives focused on recovery projects to aid in rebuilding.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="new-container">
       <div class="vis-container" id="vis4"></div>
       <div class="text-container" id="text4">
@@ -64,12 +81,14 @@
     var specVis2 = "./forest_fire_map.json";
     var specVis3 = "./forest-fire-area.json";
     var specVis4 = "./recovery_projects_map.json";
+    var specVis5 = "./water-quality.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
     }).catch(console.error);
     vegaEmbed('#vis3', specVis3, { "actions": false });
     vegaEmbed('#vis4', specVis4, { "actions": false });
+    vegaEmbed('#vis5', specVis5, { "actions": false });
   </script>
 </body>
 

@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 300,
+    "width": 500,
+    "height": 400,
     "title": "Area Burnt by Fires in Australia (2011-2016)",
     "data": {
       "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/forestFiresAustralia.csv",

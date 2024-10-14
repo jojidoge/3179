@@ -35,6 +35,11 @@
       <div class="text-container" id="text3">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
+
+      <div class="text-container" id="text4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+      <div class="vis-container" id="vis4"></div>
     </div>
   </div>
 
@@ -42,11 +47,13 @@
     var specVis1 = "./forest-fire-bar.json";
     var specVis2 = "./forest_fire_map.json";
     var specVis3 = "./forest-fire-area.json";
+    var specVis4 = "./recovery_projects_map.json";
 
     vegaEmbed('#vis1', specVis1, { "actions": false });
     vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
     }).catch(console.error);
     vegaEmbed('#vis3', specVis3, { "actions": false });
+    vegaEmbed('#vis4', specVis4, { "actions": false });
   </script>
 </body>
 

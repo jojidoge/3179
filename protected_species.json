@@ -1,0 +1,61 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/protected_species.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "transform": [
+      {
+        "calculate": "datum.Percentage === '≥80%' ? 1 : datum.Percentage === '50 to <80%' ? 2 : datum.Percentage === '30 to <50%' ? 3 : 4",
+        "as": "PercentageOrdinal"
+      },
+      {
+        "calculate": "datum.PercentageOrdinal + (0.1 * (random() - 0.5))",
+        "as": "JitteredPercentage"
+      }
+    ],
+    "mark": {
+      "type": "point",
+      "opacity": 0.6,  
+      "filled": true,   
+      "shape": "circle" 
+    },
+    "encoding": {
+      "x": {
+        "field": "JitteredPercentage",
+        "type": "quantitative",
+        "axis": {
+          "title": "Percentage of Distribution in Fire-Affected Areas",
+          "domain": [0, 4],
+          "ticks": true
+        }
+      },
+      "y": {
+        "field": "Type",
+        "type": "ordinal",
+        "axis": {
+          "title": "Type of Species"
+        }
+      },
+      "color": {
+        "field": "Type",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Spider", "Reptile", "Mammal", "Insect", "Frog", "Fish", "Bird"],
+          "range": ["#76c7c0", "#ffb74d", "#a5d6a7", "#ff8a65", "#64b5f6", "#ba68c8", "#ffd54f"]
+        }
+      },
+      "size": {
+        "value": 300  
+      },
+      "tooltip": [
+        {"field": "Common_Name", "type": "nominal", "title": "Species Name"},
+        {"field": "Percentage", "type": "nominal", "title": "Percentage Distribution"}
+      ]
+    },
+    "width": 800,  
+    "height": 400  
+  }
+  

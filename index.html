@@ -1,67 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>2019-2020 Australian Bushfires</title>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles.css" media="all">
+    <title>2019-2020 Australian Bushfires</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="all">
 </head>
 
 <body>
-  <div class="page">
-    <h1>2019-2020 Australian Bushfires</h1>
-    <p>A brief history of bushfires in Australia and a deep dive into the 2019-2020 Black Summer season.</p>
+    <div class="page">
+        <h1>2019-2020 Australian Bushfires</h1>
+        <p>A brief history of bushfires in Australia and a deep dive into the 2019-2020 Black Summer season.</p>
 
-    <!-- History Section -->
-    <div class="grid-container">
-      <div class="vis-container" id="vis1"></div>
-      <div class="text-container" id="text1">
-        <p>Australia has a long history of bushfires, with some of the earliest records dating back to the late 19th century. Climate and geography play a key role in the intensity and frequency of these fires. Understanding this history is crucial for prevention and management.</p>
-      </div>
+        <!-- History Section -->
+        <div class="grid-container">
+            <div class="vis-container" id="vis1"></div>
+            <div class="text-container" id="text1">
+                <p>Australia has a long history of bushfires, with some of the earliest records dating back to the late
+                    19th century. Climate and geography play a key role in the intensity and frequency of these fires.
+                    Understanding this history is crucial for prevention and management.</p>
+            </div>
+        </div>
+
+        <!-- Black Summer Bushfires Section -->
+        <div class="black-summer-section">
+            <h2>The 2019-2020 Black Summer Bushfires</h2>
+            <p>One of the most devastating fire seasons in Australian history, the Black Summer bushfires caused
+                widespread destruction across the country.</p>
+
+            <div class="grid-container">
+                <div class="text-container" id="text2">
+                    <p>The Black Summer fires resulted in unprecedented damage to wildlife, infrastructure, and
+                        ecosystems. Government initiatives focused on recovery projects to aid in rebuilding.</p>
+                </div>
+                <div class="vis-container" id="vis2"></div>
+
+                <div class="vis-container" id="vis3"></div>
+                <div class="text-container" id="text3">
+                    <p>Recovery efforts are underway in many affected areas, focusing on economic, environmental, and
+                        community resilience. The data visualisation below highlights key recovery projects across
+                        different regions.</p>
+                </div>
+
+                <div class="vis-container full-width" id="vis4"></div>
+            </div>
+        </div>
     </div>
 
-    <!-- Black Summer Bushfires Section -->
-    <div class="black-summer-section">
-      <h2>The 2019-2020 Black Summer Bushfires</h2>
-      <p>One of the most devastating fire seasons in Australian history, the Black Summer bushfires caused widespread destruction across the country.</p>
-      
-      <div class="grid-container">
-        <div class="text-container" id="text2">
-          <p>The Black Summer fires resulted in unprecedented damage to wildlife, infrastructure, and ecosystems. Government initiatives focused on recovery projects to aid in rebuilding.</p>
-        </div>
-        <div class="vis-container" id="vis2"></div>
+    <script type="text/javascript">
+        var specVis1 = "./forest-fire-bar.json";
+        var specVis2 = "./forest_fire_map.json";
+        var specVis3 = "./forest-fire-area.json";
+        var specVis4 = "./recovery_projects_map.json";
 
-        <div class="vis-container" id="vis3"></div>
-        <div class="text-container" id="text3">
-          <p>Recovery efforts are underway in many affected areas, focusing on economic, environmental, and community resilience. The data visualisation below highlights key recovery projects across different regions.</p>
-        </div>
-        
-        <div class="vis-container full-width" id="vis4"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <script type="text/javascript">
-    var specVis1 = "./forest-fire-bar.json";
-    var specVis2 = "./forest_fire_map.json";
-    var specVis3 = "./forest-fire-area.json";
-    var specVis4 = "./recovery_projects_map.json";
-
-    vegaEmbed('#vis1', specVis1, { "actions": false });
-    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
-    }).catch(console.error);
-    vegaEmbed('#vis3', specVis3, { "actions": false });
-    vegaEmbed('#vis4', specVis4, { "actions": false });
-  </script>
+        vegaEmbed('#vis1', specVis1, { "actions": false });
+        vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+        }).catch(console.error);
+        vegaEmbed('#vis3', specVis3, { "actions": false });
+        vegaEmbed('#vis4', specVis4, { "actions": false });
+    </script>
 </body>
 
 </html>

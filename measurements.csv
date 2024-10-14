@@ -1,0 +1,11 @@
+Time.Frame,Measurement,Value
+Post-fire,Avg_Salinity,24.86
+Post-fire,Avg_pH,7.92
+Post-fire,Avg_Chlorophyll,7.35
+Post-fire,Avg_Blue_Algae,12.74
+Post-fire,Avg_fDOM,17.63
+Pre-fire,Avg_Salinity,32.15
+Pre-fire,Avg_pH,8.05
+Pre-fire,Avg_Chlorophyll,3.2
+Pre-fire,Avg_Blue_Algae,6.22
+Pre-fire,Avg_fDOM,11.58

@@ -83,14 +83,6 @@ body {
     text-align: center;
 }
 
-
-.new-container {
-    display: flex; 
-    justify-content: space-between; 
-    margin-top: 20px; 
-    width: 100%;
-}
-
 #vis4 {
     flex: 1; 
     margin-right: 20px;
@@ -104,3 +96,35 @@ body {
     text-align: left;
     padding: 20px; 
 }
+
+.impact-section {
+    background-color: #FF8C42; 
+    color: white;
+    padding: 20px 10px 100px;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+.impact-section h2 {
+    color: #ffffff;
+}
+
+.impact-section p {
+    color: #ffffff;
+    text-align: center;
+}
+
+.new-container {
+    background-color: #4A90E2; 
+    color: white; 
+    padding: 20px 10px 100px; 
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 8px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+

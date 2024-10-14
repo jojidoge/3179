@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 500,
+    "data": {
+      "values": [
+        {"TimeFrame": "During fire", "Measurement": "Avg_Dissolved_Oxygen", "Value": 87.41},
+        {"TimeFrame": "During fire", "Measurement": "Avg_Salinity", "Value": 41.98},
+        {"TimeFrame": "During fire", "Measurement": "Avg_pH", "Value": 8.25},
+        {"TimeFrame": "During fire", "Measurement": "Avg_Chlorophyll", "Value": 9.69},
+        {"TimeFrame": "Post-fire", "Measurement": "Avg_Dissolved_Oxygen", "Value": 97.62},
+        {"TimeFrame": "Post-fire", "Measurement": "Avg_Salinity", "Value": 24.86},
+        {"TimeFrame": "Post-fire", "Measurement": "Avg_pH", "Value": 7.92},
+        {"TimeFrame": "Post-fire", "Measurement": "Avg_Chlorophyll", "Value": 7.35},
+        {"TimeFrame": "Pre-fire", "Measurement": "Avg_Dissolved_Oxygen", "Value": 96.31},
+        {"TimeFrame": "Pre-fire", "Measurement": "Avg_Salinity", "Value": 32.15},
+        {"TimeFrame": "Pre-fire", "Measurement": "Avg_pH", "Value": 8.05},
+        {"TimeFrame": "Pre-fire", "Measurement": "Avg_Chlorophyll", "Value": 3.20}
+      ]
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Measurement",
+        "type": "nominal",
+        "title": "Measurement"
+      },
+      "y": {
+        "field": "Value",
+        "type": "quantitative",
+        "title": "Average Value"
+      },
+      "color": {
+        "field": "TimeFrame",
+        "type": "nominal",
+        "title": "Time Frame",
+        "scale": {
+          "domain": ["During fire", "Post-fire", "Pre-fire"],
+          "range": ["#d9d9d9", "#2c3e50", "#6cb4e4"] 
+        }
+      },
+      "tooltip": [
+        {"field": "TimeFrame", "type": "nominal", "title": "Time Frame"},
+        {"field": "Measurement", "type": "nominal", "title": "Measurement"},
+        {"field": "Value", "type": "quantitative", "title": "Average Value"}
+      ]
+    }
+}

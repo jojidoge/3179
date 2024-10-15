@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
     "description": "Radar chart showing average values for different measurements in various time frames.",
-    "width": 400,
+    "width": 500,
     "height": 400,
     "padding":40,
     "title": "Average Water Quality Before/After",

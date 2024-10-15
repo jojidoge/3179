@@ -51,15 +51,22 @@ body {
     height: 400px;
 }
 
-#text1, #text2, #text3 {
+#text1, #text2 {
     display: block;
     width: 55%;
     padding-left: 15px;
     padding-right: 15px;
-    text-align: left;
+}
+
+#text2 {
+    margin-top: 30px;
 }
 
 #text3 {
+    display: block;
+    width: 65%;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 100px;
     text-align: left;
 }
@@ -160,6 +167,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     color: black;
+    margin-left: 0; 
 }
 
 .new-container {
@@ -170,6 +178,6 @@ body {
     margin-top: 40px;
     border-radius: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; 
     align-items: center;
 }

@@ -152,7 +152,10 @@ body {
 }
 
 #text6 {
-    width:70%;
+    width: 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: left;
 }
 
 .new-container {

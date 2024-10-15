@@ -1,152 +1,64 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 350,
-    "height": 250,
-    "title": "Total Forest Area Burnt by Fires as at April 2020",
-    "data": {
-      "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/forestFire.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 350,
+  "height": 250,
+  "title": "Total Forest Area Burnt by Fires as at April 2020",
+  "data": {
+    "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/bushfire_burnt_prop.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State",
+      "axis": {"labelAngle": 45}
     },
-    "params": [
-      {
-        "name": "metric",
-        "value": "Normalized_Burnt_Proportion",
-        "bind": {
-          "input": "select",
-          "options": [
-            "Total burnt forest area (normalized)",
-            "Total burnt area as a proportion of total forest area (normalized)"
-          ]
-        }
-      }
-    ],
-    "transform": [
-      {
-        "calculate": "datum[metric === 'Total burnt forest area (normalized)' ? 'Normalized_Total_Burnt' : 'Normalized_Burnt_Proportion']",
-        "as": "Display_Value"
-      }
-    ],
-    "encoding": {
-      "x": {
-        "field": "State",
-        "type": "nominal",
-        "title": "State",
-        "axis": {"labelAngle": 45}
-      },
-      "y": {
-        "aggregate": "sum",
-        "field": "Display_Value",
-        "type": "quantitative",
-        "title": "Value"
-      }
+    "y": {
+      "field": "Burnt_Prop",
+      "type": "quantitative",
+      "title": "Burnt Area (Proportion)"
     },
-    "layer": [
-      {
-        "mark": "bar",
-        "encoding": {
-          "color": {
-            "field": "State",
-            "type": "nominal",
-            "scale": {
-              "domain": [
-                "Australian Capital Territory",
-                "New South Wales",
-                "Queensland",
-                "South Australia",
-                "Tasmania",
-                "Victoria",
-                "Western Australia"
-              ],
-              "range": [
-                "#ff6347", 
-                "#8b0000",
-                "#8b4513",
-                "#d62728",
-                "#ff4500",
-                "#ff8c00",
-                "#cd853f"
-              ]
-
-            }
-          },
-          "tooltip": [
-            {"field": "State", "type": "nominal"},
-            {"field": "Display_Value", "type": "quantitative", "title": "Normalized Value"}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "dx": 35,
-          "dy": 10,
-          "fontSize": 12,
-          "fontStyle": "italic"
-        },
-        "encoding": {
-          "text": {
-            "condition": {
-              "test": "metric === 'Total burnt area as a proportion of total forest area (normalized)' && datum['State'] === 'Australian Capital Territory'",
-              "value": ["Australian Capital Territory has", "the highest total burnt forest area as a proportion."]
-            },
-            "value": null
-          },
-          "x": {
-            "field": "State"
-          },
-          "y": {
-            "aggregate": "sum",
-            "field": "Display_Value",
-            "type": "quantitative"
-          },
-          "color": {"value": "black"},
-          "opacity": {
-            "condition": {
-              "test": "datum['State'] === 'Australian Capital Territory' && metric === 'Total burnt area as a proportion of total forest area (normalized)'",
-              "value": 1
-            },
-            "value": 0
-          }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "left",
-          "baseline": "middle",
-          "dx": 35,
-          "dy": 10,
-          "fontSize": 12,
-          "fontStyle": "italic"
-        },
-        "encoding": {
-          "text": {
-            "condition": {
-              "test": "metric === 'Total burnt forest area (normalized)' && datum['State'] === 'New South Wales'",
-              "value": ["New South Wales has the highest", "total burnt forest area."]
-            },
-            "value": null
-          },
-          "x": {
-            "field": "State"
-          },
-          "y": {
-            "aggregate": "sum",
-            "field": "Display_Value",
-            "type": "quantitative"
-          },
-          "color": {"value": "black"},
-          "opacity": {
-            "condition": {
-              "test": "datum['State'] === 'New South Wales' && metric === 'Total burnt forest area (normalized)'",
-              "value": 1
-            },
-            "value": 0
-          }
-        }
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Australian Capital Territory",
+          "New South Wales",
+          "Victoria",
+          "Western Australia",
+          "South Australia",
+          "Queensland",
+          "Tasmania",
+          "Northern Territory"
+        ],
+        "range": [
+          "#ff6347",
+          "#8b0000",
+          "#cd853f",
+          "#ffd700",
+          "#ff4500",
+          "#d62728",
+          "#ff8c00",
+          "#8b4513"
+        ]
       }
-    ]
-  }
-  
-  
+    }
+  },
+  "mark": {
+    "type": "bar",
+    "tooltip": true
+  },
+  "tooltip": [
+    {
+      "field": "State",
+      "type": "nominal",
+      "title": "State"
+    },
+    {
+      "field": "Burnt_Prop",
+      "type": "quantitative",
+      "title": "Burnt Area Proportion"
+    }
+  ]
+}

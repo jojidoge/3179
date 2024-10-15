@@ -59,6 +59,12 @@ body {
     text-align: left;
 }
 
+#text1 {
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+}
+
 .full-width {
     width: 45%;
 }

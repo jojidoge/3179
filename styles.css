@@ -41,39 +41,30 @@ body {
         "text2 vis2"
         "vis3 text3";
     grid-gap: 40px;
-    width: 100%;
+    width: 95%;
     justify-items: center;
     align-items: center;
-    padding-top: 20px;
 }
 
 #vis1, #vis2, #vis3 {
-    width: 80%;
+    width: 90%;
     height: 400px;
 }
 
 #text1, #text2, #text3 {
     display: block;
-    align-items: center;
-    justify-content: center;
-    width:60%;
-    padding: 20px;
+    width: 55%;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: left;
-}
-
-#vis1 {
-    padding-top:60px;
-    padding-right: 60px;
 }
 
 #vis2 {
-    padding-right:60px;
+    padding-right: 20px;
 }
 
-#text1 {
-    width: 60%;
-    padding: 20px;
-    text-align: left;
+#vis1 {
+    padding-right: 20px;
 }
 
 #text3 {
@@ -94,20 +85,14 @@ body {
     background-color: #FF8C42;
     color: white;
     padding: 20px 10px 100px;
-    width: 100%;
+    width: 95%;
     margin-top: 40px;
     border-radius: 8px;
-    min-height: 400px;
 }
 
 .black-summer-section p {
     color: #ffffff;
     text-align: center;
-}
-
-#vis4 {
-    flex: 1;
-    margin-right: 20px;
 }
 
 #text4 {
@@ -116,14 +101,15 @@ body {
     align-items: center;
     justify-content: center;
     text-align: left;
-    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .impact-section {
     background-color: #f7ead2;
     color: white;
     padding: 20px 10px 100px;
-    width: 100%;
+    width: 95%;
     margin-top: 40px;
     border-radius: 8px;
     min-height: 400px;
@@ -147,7 +133,8 @@ body {
 
 #text4 {
     width: 50%;
-    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: left;
 }
 
@@ -159,13 +146,14 @@ body {
 
 #vis6 {
     width: 60%;
-    padding-right:60px;
+    padding-right: 20px;
     height: 400px;
 }
 
 #text5 {
     width: 50%;
-    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
     text-align: left;
 }
 
@@ -173,7 +161,7 @@ body {
     background-color: gray;
     color: white;
     padding: 20px 10px 100px;
-    width: 100%;
+    width: 95%;
     margin-top: 40px;
     border-radius: 8px;
     display: flex;

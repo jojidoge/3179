@@ -44,6 +44,7 @@ body {
     width: 100%;
     justify-items: center;
     align-items: center;
+    padding-top: 20px;
 }
 
 #vis1, #vis2, #vis3 {

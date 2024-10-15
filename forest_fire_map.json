@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
+  "width": 500,
   "height": 400,
   "title": "Satellite Readings of Bushfires in Australia between August and September 2019",
   "params": [

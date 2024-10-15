@@ -132,6 +132,7 @@ body {
 #vis5 {
     width: 100%;
     height: 400px;
+    justify-self: start;
 }
 
 #vis6 {

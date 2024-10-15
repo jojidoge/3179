@@ -4,17 +4,17 @@ body * {
 
 h1 {
     font-weight: 900;
-    text-align: center; 
+    text-align: center;
 }
 
 h2 {
     font-weight: 700;
-    text-align: center; 
+    text-align: center;
     color: #ffffff;
 }
 
 p {
-    text-align: center; 
+    text-align: center;
 }
 
 body {
@@ -43,11 +43,11 @@ body {
     grid-gap: 40px;
     width: 100%;
     justify-items: center;
-    align-items: center; 
+    align-items: center;
 }
 
 #vis1, #vis2, #vis3 {
-    width: 80%; 
+    width: 80%;
     height: 400px;
 }
 
@@ -56,7 +56,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    text-align: left; 
+    text-align: left;
 }
 
 .full-width {
@@ -65,7 +65,7 @@ body {
 
 .small-font {
     font-size: 14px;
-    text-align: center; 
+    text-align: center;
 }
 
 .black-summer-section {
@@ -84,21 +84,21 @@ body {
 }
 
 #vis4 {
-    flex: 1; 
+    flex: 1;
     margin-right: 20px;
 }
 
 #text4 {
-    flex: 1; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: left;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .impact-section {
-    background-color: #f7ead2; 
+    background-color: #f7ead2;
     color: white;
     padding: 20px 10px 100px;
     width: 100%;
@@ -116,14 +116,43 @@ body {
     text-align: center;
 }
 
+.impact-section .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "text4 vis5"
+        "vis6 text5";
+}
+
+#text4 {
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+}
+
+#vis5 {
+    width: 100%;
+    height: 400px;
+}
+
+#vis6 {
+    width: 60%;
+    height: 400px;
+}
+
+#text5 {
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+}
+
 .new-container {
-    background-color: gray; 
-    color: white; 
-    padding: 20px 10px 100px; 
+    background-color: gray;
+    color: white;
+    padding: 20px 10px 100px;
     width: 100%;
     margin-top: 40px;
     border-radius: 8px;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -89,7 +89,7 @@ body {
 
 #text4 {
     flex: 1;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     text-align: left;
@@ -147,6 +147,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     text-align: left;
+    display: block;
 }
 
 .new-container {

@@ -1,64 +1,281 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 200,
-    "height": 400,
-    "title": "Protected Species Affected By Fires",
-    "data": {
-      "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/protected_species.csv",
-      "format": {
-        "type": "csv"
-      }
-    },
-    "transform": [
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A packed bubble chart for protected species with a dropdown for filtering.",
+    "width": 800,
+    "height": 500,
+    "padding": {"left": 5, "right": 5, "top": 20, "bottom": 0},
+    "autosize": "none",
+    "signals": [
+      {"name": "cx", "update": "width / 2 - 200"},
+      {"name": "cy", "update": "height / 2"},
       {
-        "calculate": "datum.Percentage === '≥80%' ? 1 : datum.Percentage === '50 to <80%' ? 2 : datum.Percentage === '30 to <50%' ? 3 : 4",
-        "as": "PercentageOrdinal"
-      },
-      {
-        "calculate": "datum.PercentageOrdinal + (0.1 * (random() - 0.5))",
-        "as": "JitteredPercentage"
+        "name": "selectedType",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": ["All", "Spider", "Mammal", "Bird", "Reptile", "Frog", "Fish", "Insect"]
+        }
       }
     ],
-    "mark": {
-      "type": "point",
-      "opacity": 0.6,  
-      "filled": true,   
-      "shape": "circle" 
-    },
-    "encoding": {
-      "x": {
-        "field": "JitteredPercentage",
-        "type": "quantitative",
-        "axis": {
-          "title": "Percentage of Distribution in Fire-Affected Areas",
-          "domain": [0, 4],
-          "ticks": true
-        }
+    "data": [
+      {
+        "name": "speciesData",
+        "url": "https://raw.githubusercontent.com/jojidoge/3179/refs/heads/main/protected_species.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Percentage": "number"
+          }
+        },
+        "transform": [
+          {
+            "type": "filter",
+            "expr": "selectedType === 'All' || datum.Type === selectedType"
+          }
+        ]
+      }
+    ],
+    "scales": [
+      {
+        "name": "size",
+        "domain": {"data": "speciesData", "field": "Percentage"},
+        "range": [0, 5000]
       },
-      "y": {
-        "field": "Type",
+      {
+        "name": "color",
         "type": "ordinal",
-        "axis": {
-          "title": "Type of Species"
+        "domain": ["Spider", "Mammal", "Bird", "Reptile", "Frog", "Fish", "Insect"],
+        "range": ["#000000", "#e65100", "#ffc107", "#795548", "#4caf50", "#00bcd4", "#9c27b0"]
+      }
+    ],
+    "marks": [
+      {
+        "type": "text",
+        "encode": {
+          "enter": {
+            "text": {"value": "Protected Species in Fire-Affected Areas"},
+            "fontSize": {"value": 16},
+            "x": {"value": 40},
+            "y": {"value": 20},
+            "fontWeight": {"value": "bold"}
+          }
         }
       },
-      "color": {
-        "field": "Type",
-        "type": "nominal",
-        "scale": {
-          "domain": ["Spider", "Reptile", "Mammal", "Insect", "Frog", "Fish", "Bird"],
-          "range": ["#76c7c0", "#ffb74d", "#a5d6a7", "#ff8a65", "#64b5f6", "#ba68c8", "#ffd54f"]
+      {
+        "type": "symbol",
+        "from": {"data": "speciesData"},
+        "encode": {
+          "enter": {
+            "fill": {"scale": "color", "field": "Type"},
+            "xfocus": {"signal": "cx"},
+            "yfocus": {"signal": "cy"}
+          },
+          "update": {
+            "size": {
+              "signal": "datum.Percentage > 0 ? scale('size', datum.Percentage) : 0"
+            },
+            "stroke": {"value": "white"},
+            "strokeWidth": {"value": 1},
+            "opacity": {
+              "signal": "datum.Percentage > 0 ? 1 : 0"
+            },
+            "tooltip": {
+              "signal": "datum.Common_Name + ', ' + datum.Type + ', Percentage Distribution in Burnt Areas: ' + datum.Percentage + '%'"
+            }
+          }
+        },
+        "transform": [
+          {
+            "type": "force",
+            "iterations": 100,
+            "static": false,
+            "forces": [
+              {
+                "force": "collide",
+                "iterations": 2,
+                "radius": {"expr": "sqrt(datum.size)/2"}
+              },
+              {"force": "center", "x": {"signal": "cx"}, "y": {"signal": "cy"}},
+              {"force": "x", "x": "xfocus", "strength": 0.1},
+              {"force": "y", "y": "yfocus", "strength": 0.2}
+            ]
+          }
+        ]
+      },
+      {
+        "type": "group",
+        "encode": {
+          "enter": {
+            "x": {"value": 450},
+            "y": {"value": 100}  
+          }
+        },
+        "marks": [
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 0},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#000000"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 10},
+                "fontSize": {"value": 12},
+                "text": {"value": "Spider"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 30},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#e65100"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 40},
+                "fontSize": {"value": 12},
+                "text": {"value": "Mammal"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 60},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#ffc107"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 70},
+                "fontSize": {"value": 12},
+                "text": {"value": "Bird"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 90},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#795548"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 100},
+                "fontSize": {"value": 12},
+                "text": {"value": "Reptile"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 120},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#4caf50"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 130},
+                "fontSize": {"value": 12},
+                "text": {"value": "Frog"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 150},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#00bcd4"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 160},
+                "fontSize": {"value": 12},
+                "text": {"value": "Fish"}
+              }
+            }
+          },
+          {
+            "type": "rect",
+            "encode": {
+              "enter": {
+                "y": {"value": 180},
+                "width": {"value": 20},
+                "height": {"value": 20},
+                "fill": {"value": "#9c27b0"}
+              }
+            }
+          },
+          {
+            "type": "text",
+            "encode": {
+              "enter": {
+                "x": {"value": 30},
+                "y": {"value": 190},
+                "fontSize": {"value": 12},
+                "text": {"value": "Insect"}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "group",
+        "encode": {
+          "enter": {
+            "x": {"value": 100},
+            "y": {"value": 450}
+          }
         }
-      },
-      "size": {
-        "value": 300  
-      },
-      "tooltip": [
-        {"field": "Common_Name", "type": "nominal", "title": "Species Name"},
-        {"field": "Percentage", "type": "nominal", "title": "Percentage Distribution"}
-      ]
-    },
-    "width": 800,  
-    "height": 400  
+      }
+    ]
   }
   

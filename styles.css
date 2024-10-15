@@ -67,6 +67,11 @@ body {
     text-align: left;
 }
 
+#text3 {
+    padding: 40px;
+    text-align: left;
+}
+
 .full-width {
     width: 45%;
 }

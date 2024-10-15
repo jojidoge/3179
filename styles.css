@@ -53,7 +53,7 @@ body {
 
 #text1, #text2, #text3 {
     display: block;
-    width: 55%;
+    width: 65%;
     padding-left: 15px;
     padding-right: 15px;
     text-align: left;
@@ -74,7 +74,7 @@ body {
 }
 
 .black-summer-section {
-    background-color: #FF8C42;
+    background-color: black;
     color: white;
     padding: 20px 10px 100px;
     width: 95%;
@@ -83,8 +83,12 @@ body {
 }
 
 .black-summer-section p {
-    color: #ffffff;
+    color: white;
     text-align: center;
+}
+
+.black-summer-section h1, .black-summer-section h2 {
+    color: white;
 }
 
 #text4 {
@@ -144,7 +148,7 @@ body {
 
 #text5 {
     width: 70%;
-    padding-top:160px;
+    padding-top: 160px;
     padding-left: 15px;
     padding-right: 15px;
     text-align: left;
@@ -152,10 +156,7 @@ body {
 }
 
 #text6 {
-    width: 50%;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
+    width: 70%;
 }
 
 .new-container {

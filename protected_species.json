@@ -13,7 +13,8 @@
         "value": "All",
         "bind": {
           "input": "select",
-          "options": ["All", "Spider", "Mammal", "Bird", "Reptile", "Frog", "Fish", "Insect"]
+          "options": ["All", "Spider", "Mammal", "Bird", "Reptile", "Frog", "Fish", "Insect"],
+          "name": "Select species type: "
         }
       }
     ],
@@ -202,7 +203,7 @@
           {
             "type": "rect",
             "encode": {
-              "enter": {
+                "enter": {
                 "y": {"value": 120},
                 "width": {"value": 20},
                 "height": {"value": 20},
@@ -224,7 +225,7 @@
           {
             "type": "rect",
             "encode": {
-              "enter": {
+                "enter": {
                 "y": {"value": 150},
                 "width": {"value": 20},
                 "height": {"value": 20},
@@ -246,7 +247,7 @@
           {
             "type": "rect",
             "encode": {
-              "enter": {
+                "enter": {
                 "y": {"value": 180},
                 "width": {"value": 20},
                 "height": {"value": 20},
@@ -266,6 +267,18 @@
             }
           }
         ]
+      },
+      {
+        "type": "text",
+        "encode": {
+          "enter": {
+            "text": {"value": "Hover over any circle to see detailed information about each species."},
+            "fontSize": {"value": 14},
+            "x": {"value": 10},
+            "y": {"signal": "height - 20"},
+            "fill": {"value": "#333"}
+          }
+        }
       },
       {
         "type": "group",
